@@ -106,6 +106,12 @@ check("单数据点不判断漂移", d1["data"]["status"] == "insufficient_data"
 d2 = DS.detect_drift([{"ts": 1, "value": 100}, {"ts": 2, "value": 200}]).to_dict()
 check("两点可判断漂移", d2["data"]["status"] == "ok" and d2["data"]["change_pct"] == 100.0)
 
+# 可用性门禁：每个工具必须有 docstring
+import inspect  # noqa: E402
+
+_undocumented = [n for n, f in DS.TOOLS.items() if not (inspect.getdoc(f) or "").strip()]
+check("每个工具都有 docstring", not _undocumented, ", ".join(_undocumented))
+
 # ==================================================================
 print("\n" + "=" * 60)
 print("通过 %d 项，失败 %d 项" % (len(PASSED), len(FAILED)))

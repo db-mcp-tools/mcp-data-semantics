@@ -47,8 +47,8 @@ dbt-data-semantics call <tool> --args '{"sql": "SELECT 1"}'
 | `detect_drift` | 同一指标的时间序列漂移检测。**只有 1 个点时明确说不能判断** |
 | `detect_fanout` | JOIN 扇出检测 —— 数字虚高的头号原因。 |
 | `generate_metric_contract` | 生成可读的指标契约 YAML —— 这是真正能落地的治理产物。 |
-| `get_definition` | — |
-| `list_definitions` | — |
+| `get_definition` | 查一条指标口径定义：粒度、去重键、计算逻辑。 |
+| `list_definitions` | 列出已固化的指标口径（名字 + 粒度 + 去重键），用于发现有哪些口径可查。 |
 | `parse_metric_definition` | 把口径抽成结构化对象。**没法比对的口径等于没有治理** |
 | `reconcile` | 数字对不上时的下钻计划 —— 按"先口径后数据"的顺序排查。 |
 | `record_definition` | 写入指标字典（共享档案的一部分）。 |

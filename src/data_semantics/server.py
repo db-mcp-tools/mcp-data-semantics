@@ -308,6 +308,11 @@ def record_definition(name: str, definition: dict | str, dialect: str = "mysql",
 
 
 def get_definition(name: str, instance_id: str = "", correlation_id: str = "") -> Result:
+    """查一条指标口径定义：粒度、去重键、计算逻辑。
+
+    "销售额到底怎么算"这类争议，以这里的口径为唯一答案。
+    要浏览全部已固化的口径用 list_definitions。
+    """
     d = get_dictionary("metric", name)
     if d is None:
         raise ToolError("E_ARGS", f"指标字典中没有 `{name}`")
@@ -321,6 +326,10 @@ def get_definition(name: str, instance_id: str = "", correlation_id: str = "") -
 
 def list_definitions(limit: int = 50, instance_id: str = "",
                      correlation_id: str = "") -> Result:
+    """列出已固化的指标口径（名字 + 粒度 + 去重键），用于发现有哪些口径可查。
+
+    要看某一条的完整计算逻辑用 get_definition。
+    """
     items = list_dictionary("metric", limit=limit)
     return Result(
         ok=True, mcp=MCP_NAME, tool="list_definitions",
