@@ -7,11 +7,11 @@
 ## 安装（按需，不必装其他 MCP）
 
 ```bash
-pip install ./mcp-data-semantics              # 在工具链根目录下执行
-pip install "./mcp-data-semantics[mysql]"     # 需要连库时补驱动，或 [postgres]
+pip install mcp-data-semantics                        # 从 PyPI
+pip install "./mcp-data-semantics[mysql]"             # 从源码（在工具链根目录执行）；要连库就补驱动，或 [postgres]
 ```
 
-会自动带上它需要的共享库：`dbt-core`（方言/AST）、`dbt-store`（口径字典）。**不会**带其他 MCP。
+会自动带上它需要的共享库：`sqltk-core`（方言/AST）、`sqltk-store`（口径字典）。**不会**带其他 MCP。
 
 ## 挂到 MCP 客户端
 
@@ -32,8 +32,8 @@ pip install "./mcp-data-semantics[mysql]"     # 需要连库时补驱动，或 [
 命令行调试（不挂客户端也能用）：
 
 ```bash
-dbt-data-semantics tools
-dbt-data-semantics call <tool> --args '{"sql": "SELECT 1"}'
+mcp-data-semantics tools
+mcp-data-semantics call <tool> --args '{"sql": "SELECT 1"}'
 ```
 
 ## 工具（13）
@@ -71,3 +71,7 @@ dbt-data-semantics call <tool> --args '{"sql": "SELECT 1"}'
 ```bash
 python tests/test_data_semantics.py      # 不需要 pytest，也不需要数据库
 ```
+
+## 许可
+
+MIT © 2026 罗文星 —— 见 [LICENSE](LICENSE)。

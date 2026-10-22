@@ -1,9 +1,9 @@
 """命令行入口：数据口径治理 MCP：口径结构化、口径 diff、扇出检测、逐层下钻、漂移检测、口径契约 YAML 固化。
 
 两条命令就够用（不需要记每个工具的参数）：
-    dbt-data-semantics tools                       列出本 MCP 的全部工具
-    dbt-data-semantics call <tool> --args '{"sql": "SELECT ..."}' [--json]
-    dbt-data-semantics call <tool> --help-args     查看该工具的参数签名
+    mcp-data-semantics tools                       列出本 MCP 的全部工具
+    mcp-data-semantics call <tool> --args '{"sql": "SELECT ..."}' [--json]
+    mcp-data-semantics call <tool> --help-args     查看该工具的参数签名
 """
 
 from __future__ import annotations
@@ -60,7 +60,7 @@ def cmd_call(args) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(prog="dbt-data-semantics", description="数据口径治理 MCP：口径结构化、口径 diff、扇出检测、逐层下钻、漂移检测、口径契约 YAML 固化。")
+    p = argparse.ArgumentParser(prog="mcp-data-semantics", description="数据口径治理 MCP：口径结构化、口径 diff、扇出检测、逐层下钻、漂移检测、口径契约 YAML 固化。")
     p.add_argument("--json", action="store_true", help="JSON 输出")
     sub = p.add_subparsers(dest="cmd", required=True)
 
