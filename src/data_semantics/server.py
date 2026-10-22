@@ -18,7 +18,7 @@
 
 from __future__ import annotations
 
-from dbmcp import register, make_server
+from dbcore.mcp_kit import make_server, register
 from data_semantics import semantics as SEM
 from dbcore.dialect import normalize_dialect
 from dbstore import put_dictionary, get_dictionary, list_dictionary

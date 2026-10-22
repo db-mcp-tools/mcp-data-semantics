@@ -11,7 +11,7 @@ pip install ./mcp-data-semantics              # 在工具链根目录下执行
 pip install "./mcp-data-semantics[mysql]"     # 需要连库时补驱动，或 [postgres]
 ```
 
-会自动带上它需要的共享库：`dbt-core`（方言/AST）、`dbt-store`（口径字典）、`dbt-mcp-kit`。**不会**带其他 MCP。
+会自动带上它需要的共享库：`dbt-core`（方言/AST）、`dbt-store`（口径字典）。**不会**带其他 MCP。
 
 ## 挂到 MCP 客户端
 
