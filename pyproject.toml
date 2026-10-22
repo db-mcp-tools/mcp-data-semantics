@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-data-semantics"
+version = "0.2.0"
+description = "数据口径治理 MCP：口径结构化、口径 diff、扇出检测、逐层下钻、漂移检测、口径契约 YAML 固化。"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "Proprietary"}
+
+dependencies = [
+    "dbt-core>=0.2.0",
+    "dbt-store>=0.2.0",
+    "dbt-mcp-kit>=0.2.0",
+]
+
+[project.scripts]
+dbt-data-semantics = "data_semantics.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["py.typed", "*.yaml", "*.yml", "*.json"]
